@@ -49,8 +49,8 @@
         </div>
     </nav>
 
-    <!-- 1. 인트로 첫 화면 (모바일 겹침 방지 여백 pt-24 적용) -->
-    <div id="view-intro" class="intro-bg no-scroll-view flex flex-col justify-center items-center px-4 pt-24 pb-10 relative z-40">
+    <!-- 1. 인트로 첫 화면 -->
+    <div id="view-intro" class="intro-bg no-scroll-view flex flex-col justify-center items-center px-4 pt-20 sm:pt-24 pb-6 sm:pb-10 relative z-40">
         <h1 class="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4 sm:mb-6 text-center tracking-tight break-keep">
             잃어버린 역사를 찾아서,<br>
             <span class="text-blue-400">대한민국 역사 바로알기</span>
@@ -59,7 +59,7 @@
             거짓에 흔들리지 않는 마음, 진실을 마주하기 위한 1분의 여유.
         </p>
 
-        <div id="moon-btn" onclick="startMeditation()" class="w-32 h-32 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-yellow-50 to-yellow-200 moon-glow cursor-pointer flex flex-col items-center justify-center mb-10 transition-all duration-700">
+        <div id="moon-btn" onclick="startMeditation()" class="w-32 h-32 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-yellow-50 to-yellow-200 moon-glow cursor-pointer flex flex-col items-center justify-center mb-8 transition-all duration-700">
             <i id="moon-icon" data-lucide="moon" class="text-yellow-600 w-8 h-8 mb-2"></i>
             <span id="moon-text" class="text-yellow-900 font-bold text-center text-sm sm:text-base leading-tight">잠시 명상<br><span class="text-[10px] font-normal">(클릭)</span></span>
         </div>
@@ -80,6 +80,11 @@
                 <span class="font-bold text-base sm:text-lg">무엇이든 지금해요!</span>
             </button>
         </div>
+
+        <!-- 누락되었던 앱 설치 안내 버튼 복원 -->
+        <button onclick="openInstallModal()" class="mt-6 sm:mt-8 bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm text-white font-bold py-2 sm:py-3 px-6 rounded-full transition shadow-lg inline-flex items-center text-sm sm:text-base">
+            <i data-lucide="download" class="mr-2 w-4 h-4 sm:w-5 sm:h-5"></i> 앱 설치 안내 (바로가기)
+        </button>
     </div>
 
     <!-- 2. 본문 통합 View -->
@@ -277,6 +282,34 @@
         </div>
     </div>
 
+    <!-- 앱 설치 안내 Modal -->
+    <div id="installModal" class="modal fixed inset-0 bg-black bg-opacity-50 z-[100] items-center justify-center px-4 transition-opacity">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl relative">
+            <button onclick="closeInstallModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="text-center mb-6">
+                <div class="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="download" class="text-white w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">앱 설치 방법 안내</h3>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg mb-6 text-left">
+                <p class="text-gray-800 font-bold mb-2">[ PC (크롬 브라우저) ]</p>
+                <ul class="list-disc pl-5 mb-4 text-gray-700 text-sm space-y-1">
+                    <li>브라우저 우측 상단 <strong>점 3개(⋮)</strong> 메뉴 클릭</li>
+                    <li><strong>[저장 및 공유]</strong> 또는 <strong>[도구 더보기]</strong> 클릭</li>
+                    <li><strong>[바로가기 만들기...]</strong> 클릭 후 '창으로 열기' 체크 후 저장</li>
+                </ul>
+                <p class="text-gray-800 font-bold mb-2">[ 스마트폰 ]</p>
+                <ul class="list-disc pl-5 text-gray-700 text-sm">
+                    <li>인터넷 메뉴에서 <strong>[홈 화면에 추가]</strong> 선택</li>
+                </ul>
+            </div>
+            <button onclick="closeInstallModal()" class="w-full py-3 px-4 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded-lg transition">
+                확인했습니다. 감사합니다.
+            </button>
+        </div>
+    </div>
+
     <!-- Gemini 명령어 복사 Modal -->
     <div id="geminiModal" class="modal fixed inset-0 bg-black bg-opacity-50 z-[100] items-center justify-center px-4 transition-opacity">
         <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
@@ -374,6 +407,8 @@
         };
 
         const modal = document.getElementById('geminiModal');
+        const installModal = document.getElementById('installModal');
+        
         function openModal(title) {
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalReason').textContent = contentData[title].reason;
@@ -381,6 +416,9 @@
             modal.classList.add('active');
         }
         function closeModal() { modal.classList.remove('active'); }
+        
+        function openInstallModal() { installModal.classList.add('active'); }
+        function closeInstallModal() { installModal.classList.remove('active'); }
         
         function copyAndGotoGemini(elementId) {
             const textToCopy = document.getElementById(elementId).innerText;
