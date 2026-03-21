@@ -253,12 +253,12 @@
         <div class="max-w-4xl mx-auto px-4">
             <button onclick="navigateAndScroll('main', 'doitnow')" class="mb-6 flex items-center font-bold text-gray-600 hover:text-blue-700"><i data-lucide="arrow-left" class="w-5 h-5 mr-1"></i> 목록으로 돌아가기</button>
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div class="bg-blue-600 p-8 text-white text-center"><h2 class="text-3xl font-extrabold">AI 심층 공부</h2><p class="text-blue-100 mt-2">가짜 뉴스에 맞서는 우리의 무기</p></div>
+                <div class="bg-blue-600 p-8 text-white text-center"><h2 class="text-3xl font-extrabold">AI 심층 공부</h2><p class="text-blue-100 mt-2">우리의 유능한 학습 비서</p></div>
                 <div class="p-8">
-                    <p class="text-gray-700 mb-8 p-4 bg-blue-50 rounded border-l-4 border-blue-600">AI의 환각 현상을 명확히 이해해야 딥페이크와 조작된 역사를 간파할 수 있습니다.</p>
-                    <h3 class="text-xl font-bold mb-4">1강. 환각 현상 실습 프롬프트</h3>
+                    <p class="text-gray-700 mb-8 p-4 bg-blue-50 rounded border-l-4 border-blue-600">유능한 비서(AI)를 이용한 공부는 모든 내용을 알 수 있고 전문적인 지식을 쉽게 배울 수 있습니다.</p>
+                    <h3 class="text-xl font-bold mb-4">1강. AI 비서 활용 실습 프롬프트</h3>
                     <div class="bg-gray-100 p-4 rounded-lg">
-                        <p id="studyPrompt" class="text-gray-800 font-medium bg-white p-3 border rounded">"생성형 AI가 거짓 정보를 진짜처럼 말하는 '환각 현상'이 무엇인지 초보자에게 알기 쉽게 설명해 줘."</p>
+                        <p id="studyPrompt" class="text-gray-800 font-medium bg-white p-3 border rounded">"생성형 AI 비서를 활용해서 내가 모르는 분야의 지식을 빠르고 정확하게 학습하는 3가지 꿀팁을 초등학생과 학부모의 눈높이에서 설명해 줘."</p>
                         <div class="mt-4 flex gap-2">
                             <button onclick="copyAndGotoGemini('studyPrompt')" class="flex-1 py-3 px-4 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 flex items-center justify-center shadow-lg">
                                 복사 후 Gemini 이동하여 공부 시작하기 <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
@@ -447,14 +447,14 @@
         }
 
         const contentData = {
-            '무엇을 도와드릴까요?': { reason: "정해진 주제 외에도 번역, 요약, 아이디어 도출 등 다양한 기획을 도울 수 있습니다.", prompt: "나의 훌륭한 비서로서, 내가 앞으로 질문할 내용에 대해 가장 정확하고 창의적인 답변을 제공해 줘. 질문: [이곳에 질문을 적어주세요]" },
-            '기획 공부': { reason: "아이디어를 실행 가능한 기획서로 만드는 훈련입니다.", prompt: "유튜브 채널 운영을 위한 기획서 초안을 작성해줘." },
-            '그림 그리기': { reason: "역사적 상황을 AI로 시각화합니다.", prompt: "독립운동가들의 회의 모습을 수채화풍으로 그리는 프롬프트를 영어로 짜줘." },
-            '게임 만들기': { reason: "인터랙티브한 역사 교육 도구입니다.", prompt: "독립운동가가 되는 텍스트 어드벤처 게임을 기획해줘." },
-            '노래 만들기': { reason: "시대의 아픔을 음악으로 전달합니다.", prompt: "민주화 운동의 희망을 담은 노래 가사를 써줘." },
-            '글쓰기': { reason: "상상력을 더해 팩트를 생생하게 기록합니다.", prompt: "일제강점기 징용 피해자의 하루를 일기로 써줘." },
-            '웹툰 기획': { reason: "어려운 역사를 4컷 만화로 풀어냅니다.", prompt: "가짜 뉴스의 위험성을 경고하는 4컷 웹툰 시나리오를 짜줘." },
-            '동영상 기획': { reason: "유튜브 쇼츠용 대본을 기획합니다.", prompt: "딥페이크 감별법을 주제로 60초 유튜브 대본을 작성해줘." }
+            '무엇을 도와드릴까요?': { reason: "학업, 번역, 요약, 아이디어 도출 등 다양한 기획을 도울 수 있습니다. 가족과 함께 궁금한 점을 자유롭게 질문해 보세요.", prompt: "나의 훌륭한 비서로서, 내가 앞으로 질문할 내용에 대해 가장 정확하고 창의적인 답변을 제공해 줘. 질문: [이곳에 질문을 적어주세요]" },
+            '기획 공부': { reason: "아이디어를 실행 가능한 계획으로 만드는 훈련입니다. 가족 여행이나 학습 계획을 세워보세요.", prompt: "우리 가족의 2박 3일 주말 여행 계획표를 시간대별로 상세하게 기획해 줘." },
+            '그림 그리기': { reason: "상상하는 것을 AI를 통해 멋진 그림으로 시각화할 수 있습니다.", prompt: "머리를 싸매고 공부를 열심히 하는 어린이 모습을 만화풍으로 그리는 프롬프트를 영어로 짜줘." },
+            '게임 만들기': { reason: "복잡한 코딩 없이, 부모님과 아이가 함께 즐길 수 있는 창의적인 퀴즈나 게임을 만들 수 있습니다.", prompt: "초등학생 자녀와 부모님이 함께 재미있게 풀 수 있는 맞춤형 역사 퀴즈 게임 5문제를 출제해 줘." },
+            '노래 만들기': { reason: "소중한 일상이나 재미있는 이야기를 담아 우리가족만의 노래 가사를 지어볼 수 있습니다.", prompt: "우리 가족의 즐거운 주말 캠핑을 주제로 한 밝고 신나는 동요 가사 1절을 써줘." },
+            '글쓰기': { reason: "아이들의 상상력을 키우고 논리적인 글쓰기 실력을 향상시키는 데 큰 도움이 됩니다.", prompt: "우주로 여행을 떠난 강아지의 신나는 모험 이야기를 초등학생이 읽기 쉽게 500자 분량으로 써줘." },
+            '웹툰 기획': { reason: "일상의 재미있는 에피소드나 교육적인 내용을 4컷 만화 시나리오로 쉽게 구성해 봅니다.", prompt: "스마트폰을 올바르게 사용하는 습관을 기르기 위한 교훈적인 4컷 만화 시나리오를 짜줘." },
+            '동영상 기획': { reason: "가족의 추억이나 재미있는 일상을 숏폼(Shorts) 영상 대본으로 기획해 볼 수 있습니다.", prompt: "우리 가족 주말 요리 대회를 주제로 한 60초짜리 재미있는 유튜브 쇼츠 대본 초안을 작성해 줘." }
         };
 
         const modal = document.getElementById('geminiModal');
