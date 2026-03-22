@@ -394,151 +394,23 @@
     </div>
 
     <script>
-        lucide.createIcons();
-
-        function navigate(viewName) {
-            window.scrollTo(0, 0);
-            document.getElementById('view-intro').classList.add('page-hidden');
-            document.getElementById('view-main').classList.add('page-hidden');
-            document.getElementById('view-ai-study').classList.add('page-hidden');
-            document.getElementById('view-' + viewName).classList.remove('page-hidden');
-        }
-
-        function navigateAndScroll(viewName, sectionId) {
-            navigate(viewName);
-            setTimeout(() => { document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' }); }, 100);
-        }
-
-        let isAgeVerified = sessionStorage.getItem('ageVerified') === 'true';
-        let pendingTarget = '';
-        function checkAgeAndNavigate(targetSection) {
-            if (isAgeVerified) { navigateAndScroll('main', targetSection); } 
-            else { pendingTarget = targetSection; document.getElementById('ageModal').classList.add('active'); }
-        }
-        function acceptAge() {
-            sessionStorage.setItem('ageVerified', 'true'); isAgeVerified = true;
-            document.getElementById('ageModal').classList.remove('active'); navigateAndScroll('main', pendingTarget);
-        }
-        function rejectAge() {
-            document.getElementById('ageModal').classList.remove('active');
-            alert('15세 미만은 보호자의 지도가 필요합니다. 메인 화면으로 돌아갑니다.');
-        }
-
-        function toggleHistory(id) {
-            const element = document.getElementById(id);
-            if(element.classList.contains('hidden')) {
-                element.classList.remove('hidden');
-                element.classList.add('block');
-            } else {
-                element.classList.remove('block');
-                element.classList.add('hidden');
-            }
-        }
-
-        function openChannelModal(type) {
-            document.getElementById('modal-content-apology').classList.add('hidden');
-            document.getElementById('modal-content-doitnow').classList.add('hidden');
-            document.getElementById('modal-content-blog').classList.add('hidden');
-            document.getElementById('modal-content-' + type).classList.remove('hidden');
-            document.getElementById('channelModal').classList.add('active');
-        }
-        function closeChannelModal() { document.getElementById('channelModal').classList.remove('active'); }
-
-        let isMeditating = false;
-        let currentAudio = null;
-        function startMeditation() {
-            if(isMeditating) return;
-            isMeditating = true;
-            
-            const randomAudioNum = Math.floor(Math.random() * 3) + 1;
-            currentAudio = document.getElementById('meditation-audio-' + randomAudioNum);
-            if(currentAudio) { currentAudio.currentTime = 0; currentAudio.play().catch(e => console.log("오디오 재생 불가")); }
-
-            const moonBtn = document.getElementById('moon-btn'), moonText = document.getElementById('moon-text'), moonIcon = document.getElementById('moon-icon');
-            moonBtn.className = "w-32 h-32 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-yellow-50 to-yellow-200 moon-breathe cursor-pointer flex flex-col items-center justify-center mb-12";
-            moonIcon.classList.add('hidden');
-            
-            let seconds = 60, breatheIn = true;
-            const breatheInterval = setInterval(() => { moonText.innerHTML = breatheIn ? "<span class='text-lg'>천천히<br>들이마시세요</span>" : "<span class='text-lg'>길게<br>내쉬세요</span>"; breatheIn = !breatheIn; }, 4000);
-            
-            const timerInterval = setInterval(() => {
-                seconds--;
-                if(seconds <= 0) {
-                    clearInterval(breatheInterval); clearInterval(timerInterval);
-                    if(currentAudio) currentAudio.pause();
-                    moonBtn.className = "w-32 h-32 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-yellow-50 to-yellow-200 moon-glow cursor-pointer flex flex-col items-center justify-center mb-12";
-                    moonIcon.classList.remove('hidden'); moonText.innerHTML = "명상 완료<br><span class='text-xs font-normal'>(클릭하세요)</span>";
-                    isMeditating = false;
-                }
-            }, 1000);
-            moonText.innerHTML = "<span class='text-lg'>눈을 감고<br>호흡에 집중하세요</span>";
-        }
-
-        function switchTab(tabId) {
-            ['text', 'webtoon', 'audio'].forEach(id => {
-                document.getElementById('content-' + id).classList.add('hidden');
-                document.getElementById('btn-tab-' + id).className = "tab-inactive flex-1 py-2 px-4 rounded-lg font-bold text-sm flex items-center justify-center border transition";
-            });
-            document.getElementById('content-' + tabId).classList.remove('hidden');
-            document.getElementById('btn-tab-' + tabId).className = "tab-active flex-1 py-2 px-4 rounded-lg font-bold text-sm flex items-center justify-center border transition";
-        }
-
-        const contentData = {
-            '무엇을 도와드릴까요?': { reason: "학업, 번역, 요약, 아이디어 도출 등 다양한 기획을 도울 수 있습니다. 가족과 함께 궁금한 점을 자유롭게 질문해 보세요.", prompt: "나의 훌륭한 비서로서, 내가 앞으로 질문할 내용에 대해 가장 정확하고 창의적인 답변을 제공해 줘. 질문: [이곳에 질문을 적어주세요]" },
-            '기획 공부': { reason: "아이디어를 실행 가능한 계획으로 만드는 훈련입니다. 가족 여행이나 학습 계획을 세워보세요.", prompt: "우리 가족의 2박 3일 주말 여행 계획표를 시간대별로 상세하게 기획해 줘." },
-            '그림 그리기': { reason: "상상하는 것을 AI를 통해 멋진 그림으로 시각화할 수 있습니다.", prompt: "머리를 싸매고 공부를 열심히 하는 어린이 모습을 만화풍으로 그리는 프롬프트를 영어로 짜줘." },
-            '게임 만들기': { reason: "복잡한 코딩 없이, 부모님과 아이가 함께 즐길 수 있는 창의적인 퀴즈나 게임을 만들 수 있습니다.", prompt: "초등학생 자녀와 부모님이 함께 재미있게 풀 수 있는 맞춤형 역사 퀴즈 게임 5문제를 출제해 줘." },
-            '노래 만들기': { reason: "소중한 일상이나 재미있는 이야기를 담아 우리가족만의 노래 가사를 지어볼 수 있습니다.", prompt: "우리 가족의 즐거운 주말 캠핑을 주제로 한 밝고 신나는 동요 가사 1절을 써줘." },
-            '글쓰기': { reason: "아이들의 상상력을 키우고 논리적인 글쓰기 실력을 향상시키는 데 큰 도움이 됩니다.", prompt: "우주로 여행을 떠난 강아지의 신나는 모험 이야기를 초등학생이 읽기 쉽게 500자 분량으로 써줘." },
-            '웹툰 기획': { reason: "일상의 재미있는 에피소드나 교육적인 내용을 4컷 만화 시나리오로 쉽게 구성해 봅니다.", prompt: "스마트폰을 올바르게 사용하는 습관을 기르기 위한 교훈적인 4컷 만화 시나리오를 짜줘." },
-            '동영상 기획': { reason: "가족의 추억이나 재미있는 일상을 숏폼(Shorts) 영상 대본으로 기획해 볼 수 있습니다.", prompt: "우리 가족 주말 요리 대회를 주제로 한 60초짜리 재미있는 유튜브 쇼츠 대본 초안을 작성해 줘." }
-        };
-
-        const modal = document.getElementById('geminiModal');
-        const installModal = document.getElementById('installModal');
-        
-        function openModal(title) {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalReason').textContent = contentData[title].reason;
-            document.getElementById('modalPrompt').textContent = contentData[title].prompt;
-            modal.classList.add('active');
-        }
-        function closeModal() { modal.classList.remove('active'); }
-        function openInstallModal() { installModal.classList.add('active'); }
-        function closeInstallModal() { installModal.classList.remove('active'); }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const manifest = {
-                "name": "대한민국 역사 바로알기",
-                "short_name": "역사 바로알기",
-                "start_url": "./?v=update1",
-                "display": "standalone",
-                "background_color": "#ffffff",
-                "theme_color": "#1d4ed8",
-                "icons": [{
-                    "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjMwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==",
-                    "sizes": "512x512",
-                    "type": "image/svg+xml",
-                    "purpose": "any maskable"
-                }]
-            };
-            const blob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
-            const manifestURL = URL.createObjectURL(blob);
-            document.querySelector('head').insertAdjacentHTML('beforeend', `<link rel="manifest" href="${manifestURL}">`);
-        });
-
-        function copyAndGotoGemini(elementId) {
+    function copyAndGotoGemini(elementId) {
             const textToCopy = document.getElementById(elementId).innerText;
             const textArea = document.createElement("textarea");
             textArea.value = textToCopy;
-            textArea.style.position = "absolute"; textArea.style.left = "-9999px";
+            textArea.style.position = "absolute"; 
+            textArea.style.left = "-9999px";
             document.body.appendChild(textArea);
-            textArea.select(); textArea.setSelectionRange(0, 99999);
+            textArea.select(); 
+            textArea.setSelectionRange(0, 99999);
             try {
+                // 1. 알림창(Alert) 없이 조용히 복사 완료
                 document.execCommand('copy');
-                alert("명령어가 복사되었습니다!\n\n제미나이 창이 열리면 아래쪽 입력창에 [붙여넣기] 후 전송 버튼을 누르시면 작업이 시작됩니다.");
+                // 2. 흐름이 끊기기 전에 즉각 제미나이 새 창 열기
                 window.open('https://gemini.google.com/app', '_blank');
-            } catch (err) { alert('복사에 실패했습니다.'); }
+            } catch (err) { 
+                alert('명령어 복사에 실패했습니다. 수동으로 복사해 주세요.'); 
+            }
             document.body.removeChild(textArea);
         }
     </script>
