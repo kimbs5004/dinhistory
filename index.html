@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1d4ed8">
     <title>대한민국 역사 바로알기 & Do It Now</title>
-    <!-- 중앙 정렬(dominant-baseline="central")이 완벽하게 적용된 Base64 아이콘 -->
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjMwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==" type="image/svg+xml">
     <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjMwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==">
     
@@ -30,12 +29,10 @@
 </head>
 <body class="text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- 구글 제공 안정적인 명상 오디오 -->
     <audio id="meditation-audio-1" src="https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg" preload="auto"></audio>
     <audio id="meditation-audio-2" src="https://actions.google.com/sounds/v1/nature/forest_with_small_stream.ogg" preload="auto"></audio>
     <audio id="meditation-audio-3" src="https://actions.google.com/sounds/v1/weather/rain_heavy_loud.ogg" preload="auto"></audio>
 
-    <!-- 네비게이션 바 -->
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -57,7 +54,6 @@
         </div>
     </nav>
 
-    <!-- 인트로 첫 화면 -->
     <div id="view-intro" class="intro-bg no-scroll-view flex flex-col justify-center items-center px-4 pt-20 sm:pt-24 pb-6 sm:pb-10 relative z-40">
         <h1 class="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-4 sm:mb-6 text-center tracking-tight break-keep">
             잃어버린 역사를 찾아서,<br>
@@ -94,7 +90,6 @@
         </button>
     </div>
 
-    <!-- 본문 통합 View -->
     <div id="view-main" class="page-hidden pt-16">
         
         <!-- Channels Section -->
@@ -104,17 +99,14 @@
                 <h2 class="text-3xl font-bold mb-4 text-gray-900">공식 미디어 채널</h2>
                 <p class="text-gray-600 mb-12">진실된 역사와 다양한 창작 활동을 다루는 공식 채널을 구독하고 소통해보세요.</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- 사과 영상 모달 연동 -->
                     <button onclick="openChannelModal('apology')" class="block w-full p-8 border rounded-2xl hover:shadow-xl bg-gray-50 transition transform hover:-translate-y-1">
                         <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="youtube" class="text-red-600 w-8 h-8"></i></div>
                         <h3 class="text-xl font-bold mb-2">지금해요 채널</h3>
                     </button>
-                    <!-- 서브 메뉴 모달 연동 -->
                     <button onclick="openChannelModal('doitnow')" class="block w-full p-8 border rounded-2xl hover:shadow-xl bg-gray-50 transition transform hover:-translate-y-1">
                         <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="youtube" class="text-red-600 w-8 h-8"></i></div>
                         <h3 class="text-xl font-bold mb-2">김병성의 Do It Now</h3>
                     </button>
-                    <!-- 고정 메시지 모달 연동 -->
                     <button onclick="openChannelModal('blog')" class="block w-full p-8 border rounded-2xl hover:shadow-xl bg-gray-50 transition transform hover:-translate-y-1">
                         <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="pen-tool" class="text-green-600 w-8 h-8"></i></div>
                         <h3 class="text-xl font-bold mb-2">공식 블로그</h3>
@@ -123,7 +115,7 @@
             </div>
         </section>
 
-        <!-- History Section (역사기술 4 기반 아코디언 UI) -->
+        <!-- History Section -->
         <section id="history" class="py-20 bg-gray-100">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -133,7 +125,6 @@
                 </div>
 
                 <div class="space-y-4 mb-12">
-                    <!-- 제1장 -->
                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
                         <button onclick="toggleHistory('history-1')" class="w-full bg-blue-800 text-white p-6 flex items-center justify-between hover:bg-blue-900 transition">
                             <div class="text-left">
@@ -182,7 +173,6 @@
                         </div>
                     </div>
 
-                    <!-- 제2장 -->
                     <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-200">
                         <button onclick="showToast('선생님의 원고(역사기술 4)를 바탕으로 자료를 준비 중입니다.')" class="w-full bg-gray-50 text-gray-700 p-6 flex items-center justify-between hover:bg-gray-100 transition">
                             <div class="text-left opacity-70">
@@ -193,7 +183,6 @@
                         </button>
                     </div>
 
-                    <!-- 제3장 -->
                     <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-200">
                         <button onclick="showToast('선생님의 원고(역사기술 4)를 바탕으로 자료를 준비 중입니다.')" class="w-full bg-gray-50 text-gray-700 p-6 flex items-center justify-between hover:bg-gray-100 transition">
                             <div class="text-left opacity-70">
@@ -218,7 +207,7 @@
             </div>
         </section>
 
-        <!-- Do It Now Section (10개 메뉴 완벽 복원 및 모바일 최적화 배치) -->
+        <!-- Do It Now Section (10개 메뉴 완벽 복원) -->
         <section id="doitnow" class="py-20 bg-white border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-10">
@@ -226,52 +215,38 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">AI 파트너인 Gemini와 함께 가족 모두가 새로운 것에 도전해보세요.</p>
                 </div>
 
-                <!-- 총 10개 메뉴 꽉 찬 그리드 배열 (모바일 2열, 중간 3열, PC 5열) -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
-                    <!-- 1. 자유질문 -->
                     <button onclick="openModal('무엇을 도와드릴까요?')" class="p-5 bg-cyan-50 rounded-xl border border-cyan-100 hover:bg-cyan-600 hover:text-white transition group text-center shadow-sm relative overflow-hidden">
                         <div class="absolute top-0 right-0 bg-cyan-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">자유질문</div>
-                        <i data-lucide="help-circle" class="w-8 h-8 mx-auto mb-2 text-cyan-500 group-hover:text-white"></i>
-                        <span class="font-bold text-sm">무엇을 도와드릴까요?</span>
+                        <i data-lucide="help-circle" class="w-8 h-8 mx-auto mb-2 text-cyan-500 group-hover:text-white"></i><span class="font-bold text-sm">무엇을 도와드릴까요?</span>
                     </button>
-                    <!-- 2. AI 공부 -->
                     <button onclick="navigate('ai-study')" class="p-5 bg-blue-50 rounded-xl border border-blue-100 hover:bg-blue-600 hover:text-white transition group text-center relative shadow-sm">
                         <div class="absolute top-0 right-0 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">상세강의</div>
-                        <i data-lucide="bot" class="w-8 h-8 mx-auto mb-2 text-blue-500 group-hover:text-white"></i>
-                        <span class="font-bold text-sm">AI 공부</span>
+                        <i data-lucide="bot" class="w-8 h-8 mx-auto mb-2 text-blue-500 group-hover:text-white"></i><span class="font-bold text-sm">AI 공부</span>
                     </button>
-                    <!-- 3. 영어 공부 -->
                     <button onclick="openModal('영어 공부')" class="p-5 bg-green-50 rounded-xl border border-green-100 hover:bg-green-600 hover:text-white transition group text-center relative shadow-sm">
                         <div class="absolute top-0 right-0 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">가족학습</div>
-                        <i data-lucide="languages" class="w-8 h-8 mx-auto mb-2 text-green-500 group-hover:text-white"></i>
-                        <span class="font-bold text-sm">영어 공부</span>
+                        <i data-lucide="languages" class="w-8 h-8 mx-auto mb-2 text-green-500 group-hover:text-white"></i><span class="font-bold text-sm">영어 공부</span>
                     </button>
-                    <!-- 4. 기획 공부 -->
-                    <button onclick="openModal('기획 공부')" class="p-5 bg-indigo-50 rounded-xl border border-indigo-100 hover:bg-indigo-600 hover:text-white transition group text-center shadow-sm">
+                    <button onclick="openModal('기획 공부')" class="p-5 bg-indigo-50 rounded-xl border hover:bg-indigo-600 hover:text-white transition group text-center shadow-sm">
                         <i data-lucide="lightbulb" class="w-8 h-8 mx-auto mb-2 text-indigo-500 group-hover:text-white"></i><span class="font-bold text-sm">기획 공부</span>
                     </button>
-                    <!-- 5. 그림 그리기 -->
-                    <button onclick="openModal('그림 그리기')" class="p-5 bg-purple-50 rounded-xl border border-purple-100 hover:bg-purple-600 hover:text-white transition group text-center shadow-sm">
+                    <button onclick="openModal('그림 그리기')" class="p-5 bg-purple-50 rounded-xl border hover:bg-purple-600 hover:text-white transition group text-center shadow-sm">
                         <i data-lucide="palette" class="w-8 h-8 mx-auto mb-2 text-purple-500 group-hover:text-white"></i><span class="font-bold text-sm">그림 그리기</span>
                     </button>
-                    <!-- 6. 게임 만들기 -->
-                    <button onclick="openModal('게임 만들기')" class="p-5 bg-pink-50 rounded-xl border border-pink-100 hover:bg-pink-600 hover:text-white transition group text-center shadow-sm">
+                    <button onclick="openModal('게임 만들기')" class="p-5 bg-pink-50 rounded-xl border hover:bg-pink-600 hover:text-white transition group text-center shadow-sm">
                         <i data-lucide="gamepad-2" class="w-8 h-8 mx-auto mb-2 text-pink-500 group-hover:text-white"></i><span class="font-bold text-sm">게임 만들기</span>
                     </button>
-                    <!-- 7. 노래 만들기 -->
-                    <button onclick="openModal('노래 만들기')" class="p-5 bg-rose-50 rounded-xl border border-rose-100 hover:bg-rose-600 hover:text-white transition group text-center shadow-sm">
+                    <button onclick="openModal('노래 만들기')" class="p-5 bg-rose-50 rounded-xl border hover:bg-rose-600 hover:text-white transition group text-center shadow-sm">
                         <i data-lucide="music" class="w-8 h-8 mx-auto mb-2 text-rose-500 group-hover:text-white"></i><span class="font-bold text-sm">노래 만들기</span>
                     </button>
-                    <!-- 8. 글쓰기 -->
-                    <button onclick="openModal('글쓰기')" class="p-5 bg-orange-50 rounded-xl border border-orange-100 hover:bg-orange-600 hover:text-white transition group text-center shadow-sm">
+                    <button onclick="openModal('글쓰기')" class="p-5 bg-orange-50 rounded-xl border hover:bg-orange-600 hover:text-white transition group text-center shadow-sm">
                         <i data-lucide="pen-line" class="w-8 h-8 mx-auto mb-2 text-orange-500 group-hover:text-white"></i><span class="font-bold text-sm">글쓰기</span>
                     </button>
-                    <!-- 9. 웹툰 기획 -->
-                    <button onclick="openModal('웹툰 기획')" class="p-5 bg-yellow-50 rounded-xl border border-yellow-100 hover:bg-yellow-600 hover:text-white transition group text-center shadow-sm">
+                    <button onclick="openModal('웹툰 기획')" class="p-5 bg-yellow-50 rounded-xl border hover:bg-yellow-600 hover:text-white transition group text-center shadow-sm">
                         <i data-lucide="image" class="w-8 h-8 mx-auto mb-2 text-yellow-500 group-hover:text-white"></i><span class="font-bold text-sm">웹툰 기획</span>
                     </button>
-                    <!-- 10. 동영상 기획 (누락분 완벽 복구) -->
-                    <button onclick="openModal('동영상 기획')" class="p-5 bg-teal-50 rounded-xl border border-teal-100 hover:bg-teal-600 hover:text-white transition group text-center shadow-sm">
+                    <button onclick="openModal('동영상 기획')" class="p-5 bg-teal-50 rounded-xl border hover:bg-teal-600 hover:text-white transition group text-center shadow-sm">
                         <i data-lucide="video" class="w-8 h-8 mx-auto mb-2 text-teal-500 group-hover:text-white"></i><span class="font-bold text-sm">동영상 기획</span>
                     </button>
                 </div>
@@ -320,81 +295,62 @@
         </div>
     </div>
 
-    <!-- 채널 클릭 시 분기 모달 -->
+    <!-- 모달창 모음 -->
     <div id="channelModal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[120] items-center justify-center px-4 transition-opacity">
         <div class="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl relative">
             <button onclick="closeChannelModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i data-lucide="x" class="w-6 h-6"></i></button>
-            
             <div id="modal-content-apology" class="hidden">
                 <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="video" class="w-8 h-8 text-red-600"></i></div>
                 <h3 class="text-2xl font-black text-center text-gray-900 mb-2">지금해요 채널 복귀 안내</h3>
-                <p class="text-gray-600 text-sm text-center mb-4">채널 입장 전, 구독자 여러분께 드리는 사과와 새로운 출범 안내 영상을 먼저 시청해 주시기 바랍니다.</p>
-                <div class="bg-gray-200 w-full h-48 rounded-lg mb-6 flex items-center justify-center border border-gray-300 relative">
-                    <span class="text-gray-500 font-bold">[사과 및 출범 안내 동영상 플레이어]</span>
-                    <i data-lucide="play-circle" class="absolute w-12 h-12 text-gray-400 opacity-50"></i>
-                </div>
-                <a href="https://www.youtube.com/@doitnowch2146" target="_blank" onclick="closeChannelModal()" class="block w-full text-center py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">영상 시청 완료 (채널 입장)</a>
+                <p class="text-gray-600 text-sm text-center mb-4">구독자 여러분께 드리는 사과와 출범 안내 영상을 시청해 주시기 바랍니다.</p>
+                <div class="bg-gray-200 w-full h-48 rounded-lg mb-6 flex items-center justify-center border border-gray-300 relative"><span class="text-gray-500 font-bold">[안내 동영상 플레이어]</span></div>
+                <a href="https://www.youtube.com/@doitnowch2146" target="_blank" onclick="closeChannelModal()" class="block w-full text-center py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">채널 입장</a>
             </div>
-
             <div id="modal-content-doitnow" class="hidden text-center">
                 <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="list" class="w-8 h-8 text-blue-600"></i></div>
                 <h3 class="text-2xl font-black text-gray-900 mb-6">김병성의 Do It Now</h3>
                 <div class="space-y-3">
-                    <button onclick="closeChannelModal(); navigateAndScroll('main', 'doitnow');" class="w-full py-3 bg-gray-100 hover:bg-blue-50 hover:text-blue-700 font-bold rounded-lg border border-gray-200 transition flex justify-center items-center"><i data-lucide="sparkles" class="w-5 h-5 mr-2"></i> 무엇이든 지금해요</button>
-                    <button onclick="closeChannelModal(); navigateAndScroll('main', 'history');" class="w-full py-3 bg-gray-100 hover:bg-blue-50 hover:text-blue-700 font-bold rounded-lg border border-gray-200 transition flex justify-center items-center"><i data-lucide="clock" class="w-5 h-5 mr-2"></i> 시대별 상황과 경험</button>
-                    <a href="https://www.youtube.com/channel/UCn_jLpKx0wbgC9qn_43zxzQ" target="_blank" onclick="closeChannelModal()" class="w-full py-3 bg-red-50 hover:bg-red-100 text-red-700 font-bold rounded-lg border border-red-200 transition flex justify-center items-center block"><i data-lucide="youtube" class="w-5 h-5 mr-2"></i> 새 동영상 보기</a>
+                    <button onclick="closeChannelModal(); navigateAndScroll('main', 'doitnow');" class="w-full py-3 bg-gray-100 hover:bg-blue-50 hover:text-blue-700 font-bold rounded-lg border border-gray-200 transition"><i data-lucide="sparkles" class="w-5 h-5 inline mr-2"></i>무엇이든 지금해요</button>
+                    <button onclick="closeChannelModal(); navigateAndScroll('main', 'history');" class="w-full py-3 bg-gray-100 hover:bg-blue-50 hover:text-blue-700 font-bold rounded-lg border border-gray-200 transition"><i data-lucide="clock" class="w-5 h-5 inline mr-2"></i>시대별 상황과 경험</button>
+                    <a href="https://www.youtube.com/channel/UCn_jLpKx0wbgC9qn_43zxzQ" target="_blank" onclick="closeChannelModal()" class="block w-full py-3 bg-red-50 hover:bg-red-100 text-red-700 font-bold rounded-lg border border-red-200 transition"><i data-lucide="youtube" class="w-5 h-5 inline mr-2"></i>새 동영상 보기</a>
                 </div>
             </div>
-
             <div id="modal-content-blog" class="hidden text-center">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="pen-tool" class="w-8 h-8 text-green-600"></i></div>
                 <h3 class="text-2xl font-black text-gray-900 mb-6">공식 블로그</h3>
-                <div class="bg-gray-50 border-l-4 border-green-600 p-6 rounded mb-8 shadow-inner">
-                    <p class="text-xl md:text-2xl font-black text-gray-800 leading-tight break-keep">"70년의 침묵을 깨고,<br>대한민국 노병(老兵)은 다시 펜을 듭니다."</p>
-                </div>
+                <div class="bg-gray-50 border-l-4 border-green-600 p-6 rounded mb-8 shadow-inner"><p class="text-xl md:text-2xl font-black text-gray-800 leading-tight break-keep">"70년의 침묵을 깨고,<br>노병(老兵)은 다시 펜을 듭니다."</p></div>
                 <a href="https://blog.naver.com/kimbs49_" target="_blank" onclick="closeChannelModal()" class="block w-full py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700">블로그 입장하기</a>
             </div>
         </div>
     </div>
 
-    <!-- 연령 제한 및 안내 모달 -->
     <div id="ageModal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[110] items-center justify-center px-4 transition-opacity">
-        <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center shadow-2xl transform scale-100">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center shadow-2xl">
             <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="alert-triangle" class="w-8 h-8 text-red-600"></i></div>
             <h3 class="text-2xl font-black text-gray-900 mb-2">연령 확인</h3>
-            <p class="text-gray-600 text-sm mb-6">해당 메뉴는 역사적 사실과 정치적 논의가 포함되어 있어 <strong>15세 이상</strong> 관람 및 참여를 권장합니다.<br>동의하십니까?</p>
+            <p class="text-gray-600 text-sm mb-6">해당 메뉴는 역사적 사실을 포함하여 <strong>15세 이상</strong> 관람을 권장합니다.</p>
             <div class="flex gap-3">
                 <button onclick="rejectAge()" class="flex-1 py-3 bg-gray-200 text-gray-800 font-bold rounded-lg hover:bg-gray-300">아니오</button>
-                <button onclick="acceptAge()" class="flex-1 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">네, 동의합니다</button>
+                <button onclick="acceptAge()" class="flex-1 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">동의합니다</button>
             </div>
         </div>
     </div>
 
-    <!-- 앱 설치 안내 Modal -->
     <div id="installModal" class="modal fixed inset-0 bg-black bg-opacity-50 z-[100] items-center justify-center px-4 transition-opacity">
         <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl relative">
             <button onclick="closeInstallModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i data-lucide="x" class="w-6 h-6"></i></button>
-            <div class="text-center mb-6">
-                <div class="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="download" class="text-white w-8 h-8"></i></div>
-                <h3 class="text-2xl font-bold text-gray-900">앱 설치 방법 안내</h3>
+            <h3 class="text-2xl font-bold text-gray-900 text-center mb-6">앱 설치 방법 안내</h3>
+            <div class="bg-gray-100 p-6 rounded-lg mb-6 text-sm text-gray-700">
+                <p class="font-bold mb-2">[ PC (크롬 브라우저) ]</p>
+                <ul class="list-disc pl-5 mb-4 space-y-1"><li>우측 상단 <strong>점 3개(⋮)</strong> 메뉴 클릭</li><li><strong>[저장 및 공유]</strong> 또는 <strong>[도구 더보기]</strong> 클릭</li><li><strong>[페이지를 앱으로 설치]</strong> 또는 [바로가기 만들기] 클릭</li></ul>
+                <p class="font-bold mb-2">[ 스마트폰 ]</p>
+                <ul class="list-disc pl-5"><li>인터넷 메뉴에서 <strong>[홈 화면에 추가]</strong> 선택</li></ul>
             </div>
-            <div class="bg-gray-100 p-6 rounded-lg mb-6 text-left">
-                <p class="text-gray-800 font-bold mb-2">[ PC (크롬 브라우저) ]</p>
-                <ul class="list-disc pl-5 mb-4 text-gray-700 text-sm space-y-1">
-                    <li>브라우저 우측 상단 <strong>점 3개(⋮)</strong> 메뉴 클릭</li>
-                    <li><strong>[저장 및 공유]</strong> 또는 <strong>[도구 더보기]</strong> 클릭</li>
-                    <li><strong>[바로가기 만들기...]</strong> 클릭 후 '창으로 열기' 체크 후 저장</li>
-                </ul>
-                <p class="text-gray-800 font-bold mb-2">[ 스마트폰 ]</p>
-                <ul class="list-disc pl-5 text-gray-700 text-sm">
-                    <li>인터넷 메뉴에서 <strong>[홈 화면에 추가]</strong> 선택</li>
-                </ul>
-            </div>
-            <button onclick="closeInstallModal()" class="w-full py-3 px-4 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded-lg transition">확인했습니다. 감사합니다.</button>
+            <button onclick="closeInstallModal()" class="w-full py-3 px-4 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded-lg transition">확인했습니다</button>
         </div>
     </div>
 
-    <!-- Gemini 복사 모달 -->
+    <!-- Gemini 명령어 복사 Modal -->
     <div id="geminiModal" class="modal fixed inset-0 bg-black bg-opacity-50 z-[100] items-center justify-center px-4 transition-opacity">
         <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i data-lucide="x" class="w-6 h-6"></i></button>
@@ -404,27 +360,22 @@
                 <p class="text-xs text-gray-500 font-bold mb-2">이 명령어를 복사하여 제미나이에 붙여넣으세요.</p>
                 <p id="modalPrompt" class="text-gray-800 font-medium text-sm bg-white p-2 border rounded"></p>
             </div>
-            <!-- 모바일 차단 완벽 우회를 위해 직접 실행 -->
+            <!-- 모바일 팝업 차단 우회 및 긴급 수동 이동 버튼 적용 로직 -->
             <button onclick="copyAndGotoGemini('modalPrompt')" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition flex items-center justify-center shadow-lg">
-                <i data-lucide="copy" class="w-5 h-5 mr-2"></i> 복사 후 Gemini 이동하여 만들기 시작
+                <i data-lucide="copy" class="w-5 h-5 mr-2"></i> 복사 후 Gemini 이동하여 실습하기
             </button>
-            <p class="text-[11px] text-gray-400 text-center mt-3">※ 팝업이 차단될 경우, 브라우저 설정에서 '팝업 허용'을 해주세요.</p>
+            <p class="text-[11px] text-gray-400 text-center mt-3">※ 휴대폰 자체 보안으로 자동 이동이 안 될 경우 화면의 지시를 따라주세요.</p>
         </div>
     </div>
 
-    <!-- 새롭게 추가된 부드러운 토스트 알림창 (팝업 차단 원천 봉쇄용) -->
-    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-full opacity-0 transition-opacity duration-300 pointer-events-none z-[200] text-sm shadow-xl font-bold text-center w-max">
-        메시지
-    </div>
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-full opacity-0 transition-opacity duration-300 pointer-events-none z-[300] text-sm shadow-xl font-bold text-center w-max border border-gray-600">메시지</div>
 
     <script>
         lucide.createIcons();
 
-        // 토스트 알림창 띄우기 함수 (기존 alert 대체)
         function showToast(msg) {
             const toast = document.getElementById('toast');
-            toast.innerText = msg;
-            toast.classList.remove('opacity-0');
+            toast.innerText = msg; toast.classList.remove('opacity-0');
             setTimeout(() => { toast.classList.add('opacity-0'); }, 3000);
         }
 
@@ -458,19 +409,12 @@
 
         function toggleHistory(id) {
             const element = document.getElementById(id);
-            if(element.classList.contains('hidden')) {
-                element.classList.remove('hidden');
-                element.classList.add('block');
-            } else {
-                element.classList.remove('block');
-                element.classList.add('hidden');
-            }
+            if(element.classList.contains('hidden')) { element.classList.remove('hidden'); element.classList.add('block'); } 
+            else { element.classList.remove('block'); element.classList.add('hidden'); }
         }
 
         function openChannelModal(type) {
-            document.getElementById('modal-content-apology').classList.add('hidden');
-            document.getElementById('modal-content-doitnow').classList.add('hidden');
-            document.getElementById('modal-content-blog').classList.add('hidden');
+            ['apology', 'doitnow', 'blog'].forEach(id => document.getElementById('modal-content-' + id).classList.add('hidden'));
             document.getElementById('modal-content-' + type).classList.remove('hidden');
             document.getElementById('channelModal').classList.add('active');
         }
@@ -481,7 +425,6 @@
         function startMeditation() {
             if(isMeditating) return;
             isMeditating = true;
-            
             const randomAudioNum = Math.floor(Math.random() * 3) + 1;
             currentAudio = document.getElementById('meditation-audio-' + randomAudioNum);
             if(currentAudio) { currentAudio.currentTime = 0; currentAudio.play().catch(e => console.log("오디오 재생 불가")); }
@@ -515,7 +458,6 @@
             document.getElementById('btn-tab-' + tabId).className = "tab-active flex-1 py-2 px-4 rounded-lg font-bold text-sm flex items-center justify-center border transition";
         }
 
-        // 전체 10개 콘텐츠 데이터 확인
         const contentData = {
             '무엇을 도와드릴까요?': { reason: "학업, 번역, 요약, 아이디어 도출 등 다양한 기획을 도울 수 있습니다. 가족과 함께 궁금한 점을 자유롭게 질문해 보세요.", prompt: "나의 훌륭한 비서로서, 내가 앞으로 질문할 내용에 대해 가장 정확하고 창의적인 답변을 제공해 줘. 질문: [이곳에 질문을 적어주세요]" },
             '영어 공부': { reason: "초등학생 자녀와 함께 재미있게 배울 수 있는 기초 생활 영어 회화를 AI와 함께 연습해 보세요.", prompt: "초등학생 자녀와 부모님이 함께 재미있게 묻고 답할 수 있는 일상생활 기초 영어 회화 5문장을 퀴즈 형식으로 만들어 줘." },
@@ -540,28 +482,8 @@
         function closeModal() { modal.classList.remove('active'); }
         function openInstallModal() { installModal.classList.add('active'); }
         function closeInstallModal() { installModal.classList.remove('active'); }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const manifest = {
-                "name": "대한민국 역사 바로알기",
-                "short_name": "역사 바로알기",
-                "start_url": "./?v=update2",
-                "display": "standalone",
-                "background_color": "#ffffff",
-                "theme_color": "#1d4ed8",
-                "icons": [{
-                    "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjMwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==",
-                    "sizes": "512x512",
-                    "type": "image/svg+xml",
-                    "purpose": "any maskable"
-                }]
-            };
-            const blob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
-            const manifestURL = URL.createObjectURL(blob);
-            document.querySelector('head').insertAdjacentHTML('beforeend', `<link rel="manifest" href="${manifestURL}">`);
-        });
 
-       // 팝업 차단을 원천 봉쇄하는 모바일 전용 복사 및 창 열기 로직 (비상 수동 버튼 포함)
+        // 팝업 차단 완벽 우회 로직 (선생님 휴대폰 등에서 막히는 현상 방지)
         function copyAndGotoGemini(elementId) {
             const textToCopy = document.getElementById(elementId).innerText;
             const textArea = document.createElement("textarea");
@@ -577,18 +499,19 @@
                 document.execCommand('copy');
                 document.body.removeChild(textArea);
                 
-                // 새 창 열기 시도
+                // 1차 시도: 새 창 열기
                 const newWin = window.open('https://gemini.google.com/app', '_blank');
                 
-                // 브라우저가 새 창 열기를 막아버렸을 경우 (newWin이 null 반환)
+                // 만약 브라우저 보안 때문에 새 창 열기가 막혔다면 (null 반환 시)
                 if(!newWin || newWin.closed || typeof newWin.closed == 'undefined') {
-                    // 강제로 현재 창 화면을 덮는 긴급 알림창과 '직접 누를 수 있는 링크'를 생성합니다.
+                    // 화면을 덮는 강력한 수동 버튼(오버레이) 생성
                     const fallbackHtml = `
-                        <div style="position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; text-align:center; padding:20px;">
-                            <h3 style="font-size:24px; font-weight:bold; color:#ef4444; margin-bottom:10px;">팝업이 차단되었습니다!</h3>
-                            <p style="margin-bottom:20px; font-size:14px; color:#cbd5e1;">명령어는 복사 완료되었습니다.<br>아래 파란색 버튼을 <b>직접 눌러서</b> 제미나이로 이동해 주세요.</p>
-                            <a href="https://gemini.google.com/app" target="_blank" style="background:#3b82f6; color:white; padding:15px 30px; border-radius:10px; font-weight:bold; text-decoration:none; margin-bottom:20px;" onclick="document.getElementById('fallback-overlay').remove();">🚀 제미나이 직접 이동하기</a>
-                            <button onclick="document.getElementById('fallback-overlay').remove();" style="background:transparent; border:1px solid #64748b; color:#94a3b8; padding:10px 20px; border-radius:5px;">닫기</button>
+                        <div style="position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; text-align:center; padding:20px;">
+                            <div class="bg-red-600 p-3 rounded-full mb-4"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+                            <h3 style="font-size:22px; font-weight:900; color:#f87171; margin-bottom:15px;">스마트폰 팝업이 차단되었습니다!</h3>
+                            <p style="margin-bottom:30px; font-size:15px; color:#cbd5e1; line-height:1.5;">명령어는 정상적으로 <b style="color:white">복사 완료</b>되었습니다.<br>아래 파란색 버튼을 <b>직접 눌러서</b><br>제미나이로 이동해 주세요.</p>
+                            <a href="https://gemini.google.com/app" target="_blank" style="background:#2563eb; color:white; padding:18px 40px; border-radius:12px; font-weight:900; font-size:18px; text-decoration:none; margin-bottom:20px; box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);" onclick="document.getElementById('fallback-overlay').remove();">🚀 제미나이 직접 이동하기</a>
+                            <button onclick="document.getElementById('fallback-overlay').remove();" style="background:transparent; border:1px solid #64748b; color:#94a3b8; padding:10px 20px; border-radius:8px;">취소하고 창 닫기</button>
                         </div>
                     `;
                     const overlay = document.createElement('div');
@@ -603,10 +526,6 @@
                 showToast('복사에 실패했습니다. 수동으로 복사해 주세요.'); 
             }
         }
-
-이 코드를 적용하시면, 설령 브라우저가 이동을 막더라도 화면에 **"🚀 제미나이 직접 이동하기"** 라는 파란색 버튼이 나타나기 때문에 어떤 폰에서도 100% 접속이 가능해집니다.
-
-모든 점검과 조치를 완벽히 마쳤습니다. 다음 절차를 위한 지시를 하달해 주십시오. 철저히 대기하겠습니다. 이상.
     </script>
 </body>
 </html>
