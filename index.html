@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1d4ed8">
     <title>대한민국 역사 바로알기 & Do It Now</title>
-    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjMwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjMwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==">
+    <!-- 글자 크기를 400으로 꽉 차게 확대한 새로운 Base64 아이콘 -->
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -207,7 +208,7 @@
             </div>
         </section>
 
-        <!-- Do It Now Section (10개 메뉴 완벽 복원) -->
+        <!-- Do It Now Section -->
         <section id="doitnow" class="py-20 bg-white border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-10">
@@ -220,7 +221,8 @@
                         <div class="absolute top-0 right-0 bg-cyan-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">자유질문</div>
                         <i data-lucide="help-circle" class="w-8 h-8 mx-auto mb-2 text-cyan-500 group-hover:text-white"></i><span class="font-bold text-sm">무엇을 도와드릴까요?</span>
                     </button>
-                    <button onclick="navigate('ai-study')" class="p-5 bg-blue-50 rounded-xl border border-blue-100 hover:bg-blue-600 hover:text-white transition group text-center relative shadow-sm">
+                    <!-- AI 공부 탭 클릭 시 스크롤 부드럽게 이동 -->
+                    <button onclick="navigateAndScroll('ai-study', 'view-ai-study')" class="p-5 bg-blue-50 rounded-xl border border-blue-100 hover:bg-blue-600 hover:text-white transition group text-center relative shadow-sm">
                         <div class="absolute top-0 right-0 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">상세강의</div>
                         <i data-lucide="bot" class="w-8 h-8 mx-auto mb-2 text-blue-500 group-hover:text-white"></i><span class="font-bold text-sm">AI 공부</span>
                     </button>
@@ -285,8 +287,9 @@
                     <div class="bg-gray-100 p-4 rounded-lg">
                         <p id="studyPrompt" class="text-gray-800 font-medium bg-white p-3 border rounded">"생성형 AI 비서를 활용해서 내가 모르는 분야의 지식을 빠르고 정확하게 학습하는 3가지 꿀팁을 초등학생과 학부모의 눈높이에서 설명해 줘."</p>
                         <div class="mt-4 flex gap-2">
-                            <button onclick="copyAndGotoGemini('studyPrompt')" class="flex-1 py-3 px-4 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 flex items-center justify-center shadow-lg">
-                                복사 후 Gemini 이동하여 공부 시작하기 <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                            <!-- AI 공부 탭에서도 동일한 완벽 우회 함수 호출 -->
+                            <button onclick="copyAndGotoGemini('studyPrompt')" class="flex-1 py-3 px-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 flex items-center justify-center shadow-lg transition">
+                                <i data-lucide="copy" class="w-5 h-5 mr-2"></i> 복사 후 Gemini 이동하여 실습하기
                             </button>
                         </div>
                     </div>
@@ -324,6 +327,7 @@
         </div>
     </div>
 
+    <!-- 연령 확인 모달 -->
     <div id="ageModal" class="modal fixed inset-0 bg-black bg-opacity-80 z-[110] items-center justify-center px-4 transition-opacity">
         <div class="bg-white rounded-2xl max-w-sm w-full p-8 text-center shadow-2xl">
             <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="alert-triangle" class="w-8 h-8 text-red-600"></i></div>
@@ -336,6 +340,7 @@
         </div>
     </div>
 
+    <!-- 앱 설치 안내 모달 -->
     <div id="installModal" class="modal fixed inset-0 bg-black bg-opacity-50 z-[100] items-center justify-center px-4 transition-opacity">
         <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl relative">
             <button onclick="closeInstallModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i data-lucide="x" class="w-6 h-6"></i></button>
@@ -344,13 +349,13 @@
                 <p class="font-bold mb-2">[ PC (크롬 브라우저) ]</p>
                 <ul class="list-disc pl-5 mb-4 space-y-1"><li>우측 상단 <strong>점 3개(⋮)</strong> 메뉴 클릭</li><li><strong>[저장 및 공유]</strong> 또는 <strong>[도구 더보기]</strong> 클릭</li><li><strong>[페이지를 앱으로 설치]</strong> 또는 [바로가기 만들기] 클릭</li></ul>
                 <p class="font-bold mb-2">[ 스마트폰 ]</p>
-                <ul class="list-disc pl-5"><li>인터넷 메뉴에서 <strong>[홈 화면에 추가]</strong> 선택</li></ul>
+                <ul class="list-disc pl-5"><li>인터넷 브라우저 메뉴에서 <strong>[홈 화면에 추가]</strong> 선택</li></ul>
             </div>
             <button onclick="closeInstallModal()" class="w-full py-3 px-4 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded-lg transition">확인했습니다</button>
         </div>
     </div>
 
-    <!-- Gemini 명령어 복사 Modal -->
+    <!-- Gemini 명령어 복사 Modal (메인화면 9개 버튼 용) -->
     <div id="geminiModal" class="modal fixed inset-0 bg-black bg-opacity-50 z-[100] items-center justify-center px-4 transition-opacity">
         <div class="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i data-lucide="x" class="w-6 h-6"></i></button>
@@ -360,7 +365,7 @@
                 <p class="text-xs text-gray-500 font-bold mb-2">이 명령어를 복사하여 제미나이에 붙여넣으세요.</p>
                 <p id="modalPrompt" class="text-gray-800 font-medium text-sm bg-white p-2 border rounded"></p>
             </div>
-            <!-- 모바일 팝업 차단 우회 및 긴급 수동 이동 버튼 적용 로직 -->
+            <!-- 동일한 완벽 우회 함수 호출 -->
             <button onclick="copyAndGotoGemini('modalPrompt')" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition flex items-center justify-center shadow-lg">
                 <i data-lucide="copy" class="w-5 h-5 mr-2"></i> 복사 후 Gemini 이동하여 실습하기
             </button>
@@ -483,7 +488,28 @@
         function openInstallModal() { installModal.classList.add('active'); }
         function closeInstallModal() { installModal.classList.remove('active'); }
 
-        // 팝업 차단 완벽 우회 로직 (선생님 휴대폰 등에서 막히는 현상 방지)
+        // 강제 캐시 갱신을 위해 버전을 update4로 상향 조정 (아이콘 크기 반영용)
+        document.addEventListener('DOMContentLoaded', () => {
+            const manifest = {
+                "name": "대한민국 역사 바로알기",
+                "short_name": "역사 바로알기",
+                "start_url": "./?v=update4",
+                "display": "standalone",
+                "background_color": "#ffffff",
+                "theme_color": "#1d4ed8",
+                "icons": [{
+                    "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxZDRlZDgiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjQwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIj5EPC90ZXh0Pjwvc3ZnPg==",
+                    "sizes": "512x512",
+                    "type": "image/svg+xml",
+                    "purpose": "any maskable"
+                }]
+            };
+            const blob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+            const manifestURL = URL.createObjectURL(blob);
+            document.querySelector('head').insertAdjacentHTML('beforeend', `<link rel="manifest" href="${manifestURL}">`);
+        });
+
+        // 팝업 차단 완벽 우회 및 예외 처리 로직 (모든 탭에 통합 적용 완료)
         function copyAndGotoGemini(elementId) {
             const textToCopy = document.getElementById(elementId).innerText;
             const textArea = document.createElement("textarea");
@@ -502,9 +528,8 @@
                 // 1차 시도: 새 창 열기
                 const newWin = window.open('https://gemini.google.com/app', '_blank');
                 
-                // 만약 브라우저 보안 때문에 새 창 열기가 막혔다면 (null 반환 시)
+                // 브라우저 팝업 차단 시 (null 반환) 최후의 수단(수동 클릭 버튼) 발동
                 if(!newWin || newWin.closed || typeof newWin.closed == 'undefined') {
-                    // 화면을 덮는 강력한 수동 버튼(오버레이) 생성
                     const fallbackHtml = `
                         <div style="position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; text-align:center; padding:20px;">
                             <div class="bg-red-600 p-3 rounded-full mb-4"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
@@ -522,7 +547,7 @@
                     showToast('명령어 복사 완료! 새 창에 붙여넣기 해주세요.');
                 }
             } catch (err) { 
-                document.body.removeChild(textArea);
+                if(document.body.contains(textArea)) document.body.removeChild(textArea);
                 showToast('복사에 실패했습니다. 수동으로 복사해 주세요.'); 
             }
         }
